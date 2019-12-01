@@ -33,19 +33,19 @@ namespace Backend.Controllers
             return Ok(new {id = book.Id, books});
         }
 
-        [HttpGet("{bookId}/themes")]
+        [HttpGet("{bookId}/chapters")]
         public async Task<IActionResult> GetThemes(int bookId)
         {
-            return Ok(await _context.Set<Theme>().Where(x => x.BookId == bookId).ToArrayAsync());
+            return Ok(await _context.Set<Chapter>().Where(x => x.BookId == bookId).ToArrayAsync());
         }
 
-        [HttpPost("{bookId}/themes")]
-        public async Task<IActionResult> AddTheme(int bookId, [FromBody] Theme chapter)
+        [HttpPost("{bookId}/chapters")]
+        public async Task<IActionResult> AddTheme(int bookId, [FromBody] Chapter chapter)
         {
             chapter.BookId = bookId;
-            await _context.Set<Theme>().AddAsync(chapter);
+            await _context.Set<Chapter>().AddAsync(chapter);
             await _context.SaveChangesAsync();
-            return Ok(new { id = chapter.Id, themes = await _context.Set<Theme>().ToArrayAsync() });
+            return Ok(new { id = chapter.Id, chapters = await _context.Set<Chapter>().ToArrayAsync() });
         }
     }
 }

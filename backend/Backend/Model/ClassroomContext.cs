@@ -11,7 +11,7 @@ namespace Backend.Model
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Theme>();
+            modelBuilder.Entity<Chapter>();
             modelBuilder.Entity<Question>();
             modelBuilder.Entity<Book>();
         }

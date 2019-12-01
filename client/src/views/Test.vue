@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div v-for="t in test" :key="t.theme">
+        <div v-for="t in test" :key="t.Theme">
             <h3>{{t.theme}}</h3>
             <ol>
-                <li  v-for="q in t.questions" :key="q.text">
-                    <p>{{q.text}}</p>
-                    <div v-html="q.content"></div>
+                <li  v-for="q in t.Questions" :key="q.Text">
+                    <p>{{q.Text}}</p>
+                    <div v-html="q.Content"></div>
                 </li>
             </ol>
         </div>
@@ -22,7 +22,7 @@
             }
         },
         async created() {
-            const { data } = await axios.post('/api/test');
+            const { data } = await axios.get('/api/test');
             this.test = data;
         }
     }

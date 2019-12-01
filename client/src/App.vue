@@ -12,7 +12,7 @@
 
         <md-list>
           <md-list-item :to="'/editor/' + book.id" v-for="book in books" :key="book.id">
-            <md-icon>move_to_inbox</md-icon>
+            <md-icon>library_books</md-icon>
             <span class="md-list-item-text">{{book.name}}</span>
           </md-list-item>
         </md-list>
@@ -72,7 +72,7 @@
 
   // Demo purposes only
   .md-drawer {
-    width: 230px;
+    width: 210px;
     max-width: calc(100vw - 125px);
   }
 </style>

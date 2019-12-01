@@ -1,6 +1,6 @@
 ﻿namespace Backend.Model
 {
-    public class Theme
+    public class Chapter
     {
         public int Id { get; set; }
         public string Title { get; set; }

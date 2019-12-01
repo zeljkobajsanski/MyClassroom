@@ -40,7 +40,7 @@ namespace Backend
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseFileServer();
             app.UseMvc();
         }
     }

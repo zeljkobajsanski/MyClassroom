@@ -6,6 +6,6 @@ namespace Backend.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<Theme> Themes { get; set; }
+        public ICollection<Chapter> Themes { get; set; }
     }
 }

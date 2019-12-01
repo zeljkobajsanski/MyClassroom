@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(ClassroomContext))]
-    [Migration("20191201135550_Initial")]
+    [Migration("20191201172537_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,25 +30,7 @@ namespace Backend.Migrations
                     b.ToTable("Book");
                 });
 
-            modelBuilder.Entity("Backend.Model.Question", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Content");
-
-                    b.Property<string>("Text");
-
-                    b.Property<int?>("ThemeId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ThemeId");
-
-                    b.ToTable("Question");
-                });
-
-            modelBuilder.Entity("Backend.Model.Theme", b =>
+            modelBuilder.Entity("Backend.Model.Chapter", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -61,22 +43,40 @@ namespace Backend.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("Theme");
+                    b.ToTable("Chapter");
                 });
 
             modelBuilder.Entity("Backend.Model.Question", b =>
                 {
-                    b.HasOne("Backend.Model.Theme", "Theme")
-                        .WithMany()
-                        .HasForeignKey("ThemeId");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("ChapterId");
+
+                    b.Property<string>("Content");
+
+                    b.Property<string>("Text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChapterId");
+
+                    b.ToTable("Question");
                 });
 
-            modelBuilder.Entity("Backend.Model.Theme", b =>
+            modelBuilder.Entity("Backend.Model.Chapter", b =>
                 {
                     b.HasOne("Backend.Model.Book", "Book")
                         .WithMany("Themes")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Backend.Model.Question", b =>
+                {
+                    b.HasOne("Backend.Model.Chapter", "Chapter")
+                        .WithMany()
+                        .HasForeignKey("ChapterId");
                 });
 #pragma warning restore 612, 618
         }
