@@ -1,0 +1,8 @@
+/Backend/Backend/obj
+/Backend/Backend/bin/Debug/netcoreapp2.2
+/Backend/.vs/Backend/v15/*.suo
+/Backend/.vs/Backend/v15/Server/sqlite3/*.lock
+/Backend/.vs/Backend/v15/Server/sqlite3/storage.ide
+/Backend/.vs/Backend/v15/Server/sqlite3/storage.ide-shm
+/Backend/.vs/Backend/v15/Server/sqlite3/storage.ide-wal
+/Backend/.vs/config
