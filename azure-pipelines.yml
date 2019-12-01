@@ -26,10 +26,15 @@ steps:
     command: 'custom'
     workingDir: 'client'
     customCommand: 'run build'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'client/dist'
+    Contents: '**'
+    TargetFolder: 'backend/Backend/wwwroot'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
-    publishWebProjects: true
+    projects: '**/*.csproj'
     arguments: '--output $(Build.ArtifactStagingDirectory)'
     feedsToUse: 'select'
     versioningScheme: 'off'
